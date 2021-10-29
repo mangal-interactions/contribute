@@ -14,7 +14,15 @@ There are three steps to submitting a dataset (and one of them is only taking a 
 
 This is not something you actually have to do. If you have an [ORCID](https://orcid.org/) ID, all you need to do is click on <https://mangal.io/auth>, login with ORCID, and you will have an account. We will ask for your ORCID during the submission process if you want it to be linked to the data.
 
-That's it.
+That's it. Welcome to the user list.
+
+### Preparing your data according to our templates
+
+This step is probably the longest, and if we're being honnest, it's not 100% mandatory. As of Nov. 2021, we have added about 130k interactions by writing bespoke scripts for each dataset. It's just that it takes longer, and often involves a number of back and forth emails to clarify points of data structure.
+
+To make sure that the data submission process is 
+
+### Opening an issue describing the dataset
 
 ## The templates
 
