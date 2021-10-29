@@ -1,0 +1,1 @@
+# Mangal submission templates
