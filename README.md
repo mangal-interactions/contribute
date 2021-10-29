@@ -69,6 +69,10 @@ will most likely always be how we proceed.
 specific type of issue (called *Data Issue*) [you can open][issue] on this
 repository, and we will examine and fix the issue.
 
+**I'm really stuck**! Again, not a question, but you can open a *Submission
+Help* [issue]; we can either find a solution, or schedule a screen-sharing
+session to examine how to best format the data.
+
 <!-- Below are the links used in the document -->
 
 [ORCID]: https://orcid.org/
