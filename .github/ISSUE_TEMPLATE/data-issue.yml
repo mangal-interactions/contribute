@@ -1,7 +1,7 @@
 name: Data Issue
 description: Issue with data stored on mangal.io
 title: "[ISSUE]: "
-labels: ["data-problem", "triage"]
+labels: ["data-issue", "triage"]
 assignees:
   - tpoisot
 body:
