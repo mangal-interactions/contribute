@@ -1,0 +1,56 @@
+name: Data Submisison
+description: Submission of filled-in template files for upload
+title: "[DATASET]: "
+labels: ["data-submission", "triage"]
+assignees:
+  - tpoisot
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for contributing to the growth of mangal.io; this form will collect all of the relevant information to initiate the submission process.
+  - type: input
+    id: orcid
+    attributes:
+      label: Submitter's ORCID
+      placeholder: 0000-0000-0000-0000
+      description: If your ORCID is not yet linked to the mangal database, please visit mangal.io/auth
+    validations:
+      required: true
+  - type: checkboxes
+    attributes:
+      label: Dataset content
+      description: Please indicate which components of the dataset you have
+      options:
+        - label: networks.csv
+          required: true
+        - label: nodes.csv
+          required: true
+        - label: interactions.csv
+          required: true
+        - label: environement.csv
+          required: false
+        - label: traits.csv
+          required: false
+  - type: input
+    attributes:
+      label: Name of the dataset
+      description: Please give a short name for the dataset, usually of the form `author_year`, in lowercase
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Description of the dataset
+      description: Please give a short description for the dataset, in about one sentence
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Anything we need to know about this dataset?
+      description: You can use this field to provide any additional information, or high-level questions you have about the dataset and its upload
+  - type: textarea
+    attributes:
+      label: How to fix the problem
+      description: If you have a specific idea or recommendation about fixing the problem, please write it down here
+
+   
