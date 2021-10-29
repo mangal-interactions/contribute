@@ -13,6 +13,14 @@ templates are organised in the same way: the first row is the field name, the
 second row tells whether it is required or optional, and the last row is
 reminders about how to format the data.
 
+🔭 A 100000ft. view of the data organisation, and of the relationship between the elements, is:
+
+- datasets contains networks
+- networks contains nodes
+- nodes are linked to a taxonomy backbone
+- interactions are linking two nodes
+- references, traits, and environment metadata are attached to various objects
+
 ⚠️ When filling-in the templates, **please do not remove** rows 2 and 3; they
 are used in the automatic validation we perform before moving on to manual
 inspection. Your data should always start on row 4. The column delimitor is `;`.
@@ -27,6 +35,10 @@ populated automatically to ensure that the data are correctly linked.
 ⚠️ When downloading the templates, **please do not rename them**. This is going
 to help with the injection steps, as we perform some automatic checks for data
 integrity before manual inspection.
+
+🤓 If you want to take a really deep dive at the data representation, the API
+documentation is [available online][API]. We strongly suggest you do not read
+it.
 
 ### Datasets
 
@@ -127,7 +139,11 @@ point;[x,y]
 ~~~
 
 Within a dataset, networks can be a mix of points and polygons, but each network
-must be a single type.
+must be a single type. If you want to draw your polygon, <geojson.io> is very
+simple to use. A polygon is often a good type of geometry to use: interaction
+objects have their own geom field, and so you can represent the network as
+covering, *e.g.* a forest fragment with a polygon, and then locate each
+interaction with a point within it.
 
 🔬 The `all_interactions` field is a flag indicating whether the dataset
 contains *known* non-interactions. This is going to be `false` about 99% of the
@@ -135,8 +151,71 @@ time, but may be `true` when dealing with infection assays, cafeteria
 experiments, etc. There is a special interaction-level flag to indicate which
 are know to not occur.
 
+❔ Why is there no `reference` field for networks? Very good question - we ended
+up moving the reference field to the `interaction` type, as networks coming from
+litterature review can use one reference for each interaction.
+
+### Taxonomy and nodes
+
+A `network` is a collection of `node`s (see the [node] endpoint) and
+`interaction`s, but we always start by uploading the nodes. Nodes are actually
+two objects wearing a trenchcoat: the node itself as *you* called it in the raw
+data, and an object in the `taxonomy` backbone (see the [taxonomy] endpoint).
+
+😕 **Wait, what**? Taxonomic identifications in the field are not necessarily as
+precise as we would like, and we want to strike the right balance between (i)
+keeping the data as raw as possible, for reproducibility, and (ii) linking them
+to a valid taxonomic node, for generality. For example, let's look at this node:
+
+~~~json
+{
+    "original_name":"Z1ai: copepods (large, >= 0.025mg C)",
+    "node_level":"taxon",
+    "network_id":2470,
+    "taxonomy_id":4441
+}
+~~~
+
+It maps to the following entry in our taxonomy:
+
+~~~json
+{
+    "name":"Copepods",
+    "ncbi":6830,
+    "tsn":85257,
+    "eol":null,
+    "bold":null,
+    "gbif":null,
+    "col":null,
+    "rank":null
+}
+~~~
+
+This way, we can map the `node` to the actual network node in the raw data, but
+we can also look for *e.g.* "all interactions involving copepods".
+
+To facilitate the injection of nodes, we put information for original and
+reference names in the same template.
+
+`original_name` is the name that you gave the node in your original data. It
+does not need to be globally unique, but *it needs to be unique within a
+network*. In the template, you will see that we do not ask for `network_id`
+(instead using the network *name*), nor for `taxonomy_id` (as we will match or
+create the taxonomy backbone entry as required).
+
+The `node_level` field is one of `taxon`, `population` or `individual` - in
+practice, `population` and `taxon` are more or less interchangeable, the only
+recommendation we offer is that if you have node `attribute`s (these are covered
+later), `population` is *probably* more accurate than `taxon`. If the
+information you have is *I have a reference that says Lynx eat hares*, this is
+probably a `taxon` level interaction.
+
+💬 As for other choices where there is no *correct* solution, we will discuss
+the consequences of this choice as part of  the *Data Submission* issue.
+
 <!-- links -->
 
+[API]: https://mangal-interactions.github.io/mangal-api/
 [issue]: https://github.com/mangal-interactions/contribute/issues/new/choose
 [dataset]: https://mangal.io/api/v2/dataset
 [geojson]: https://geojson.org/
