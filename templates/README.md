@@ -4,8 +4,6 @@ This folder stores a series of `.csv` files, which, when filled, represent an
 almost complete data submission to mangal.io (the remaining steps are to add
 metadata when opening the *Data Submission* [issue]).
 
-## A brief overview of the format
-
 The data in mangal are represented by a hierarchy of types, and some choices
 deserve a clarification. This section will provide a detailed explanation of
 what makes a mangal object, and then give a link to the template. All the
@@ -20,6 +18,19 @@ reminders about how to format the data.
 - nodes are linked to a taxonomy backbone
 - interactions are linking two nodes
 - references, traits, and environment metadata are attached to various objects
+
+Here is a checklist of **mandatory** files:
+
+- [ ] `dataset.csv`
+- [ ] `networks.csv`
+- [ ] `nodes.csv`
+- [ ] `interactions.csv`
+
+Here is a checklist of **optional** files:
+
+- [ ] `environment.csv`
+- [ ] `traits.csv`
+- [ ] `references.csv`
 
 ⚠️ When filling-in the templates, **please do not remove** rows 2 and 3; they
 are used in the automatic validation we perform before moving on to manual
@@ -40,7 +51,7 @@ integrity before manual inspection.
 documentation is [available online][API]. We strongly suggest you do not read
 it.
 
-### Datasets
+## Datasets
 
 The highest-level unit is a `datataset` (see the [dataset] endpoint for
 examples). A dataset contains high-level metadata, and is intended as a
@@ -64,8 +75,10 @@ The `dataset` level does not have a `csv` template, as we will ask for the
 information during the *Data Submission* issue.
 
 ⚠️ **It is very important** that a *Data Submission* cover a *single* dataset!
+If your dataset contains multiple networks, you only need to submit one file for
+the networks, nodes, interactions, etc.
 
-### Networks
+## Networks
 
 Within a `dataset` is a series of `network`s (see the [network] endpoint for
 examples).
@@ -153,9 +166,21 @@ are know to not occur.
 
 ❔ Why is there no `reference` field for networks? Very good question - we ended
 up moving the reference field to the `interaction` type, as networks coming from
-litterature review can use one reference for each interaction.
+litterature reviews can use one reference for each interaction.
 
-### Taxonomy and nodes
+## Environmental conditions (optional)
+
+Environmental conditions have a "one-to-many" relationship with networks; in
+short, you can have multiple variables associated to a single network, such as
+for example elevation, temperature, and soil moisture.
+
+➡️ [Get the template](https://raw.githubusercontent.com/mangal-interactions/contribute/main/templates/environment.csv)
+
+The mandatory traits are `network` (the *name* of a network in the
+`networks.csv` file); other fields are self-explanatory, and the unit will
+default to `None` for dimensionless variables.
+
+## Taxonomy and nodes
 
 A `network` is a collection of `node`s (see the [node] endpoint) and
 `interaction`s, but we always start by uploading the nodes. Nodes are actually
@@ -232,6 +257,26 @@ information using taxonomic identifiers, but the accepted values are `kingdom`,
 `subkingdom`, `infrakingdom`, `superdivision`, `division`, `subdivision`,
 `phylum`, `class`, `superorder`, `order`, `superfamily`, `family`, `genus`,
 `subgenus`, `species`, and `infraspecies`.
+
+## Node traits (optional)
+
+Node traits conditions have a "one-to-many" relationship with nodes; in short,
+you can have multiple traits associated to a single node, such as for example
+body size, life stage, and color.
+
+➡️ [Get the template](https://raw.githubusercontent.com/mangal-interactions/contribute/main/templates/traits.csv)
+
+The mandatory traits are `network` (the *name* of a network in the
+`networks.csv` file) and `node` (the *original name* of the node in the
+`nodes.csv` file); other fields are self-explanatory, and the unit will default
+to `None` for dimensionless variables.
+
+## References (optional, recommended)
+
+
+## Interactions
+
+The `interaction` object is what links nodes from a network together. As such, this is likely going to be the largest file you submit. If you submit mu
 
 <!-- links -->
 
