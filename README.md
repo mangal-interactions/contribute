@@ -20,9 +20,16 @@ That's it. Welcome to the user list.
 
 This step is probably the longest, and if we're being honnest, it's not 100% mandatory. As of Nov. 2021, we have added about 130k interactions by writing bespoke scripts for each dataset. It's just that it takes longer, and often involves a number of back and forth emails to clarify points of data structure.
 
-To make sure that the data submission process is 
+To make sure that the data are publis
 
 ### Opening an issue describing the dataset
 
 ## The templates
 
+## Additional questions
+
+**What is the license of the data on mangal.io**? CC-0 by default, or the license of the dataset that was previously uploaded to *e.g.* Dryad, figshare, etc.
+
+**How do I know the data will not be uploaded wrong**? The data submission script is using a number of sanity checks to make sure the data are injected exactly as provided. Nothing is done without human supervision.
+
+**I found an error in the data**! That's not a question but fine; there is a specific type of issue you can open on this repository, and we will examine and fix the issue.
