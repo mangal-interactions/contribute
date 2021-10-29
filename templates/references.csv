@@ -1,0 +1,4 @@
+firstauthor;year;doi;paper;data;type;pmid;jstor
+mandatory;mandatory;optional;optional;mandatory;mandatory;optional;optional
+name of the first author (ascii, no space);year (YYYY);doi (no URL prefix);paper url; data url;either dataset or interaction;PubMed ID;JSTOR ID
+

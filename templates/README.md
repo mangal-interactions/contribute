@@ -273,10 +273,28 @@ to `None` for dimensionless variables.
 
 ## References (optional, recommended)
 
+Both `dataset`s and `interaction`s can have associated references. This is a
+very useful field to populate, but an entirely optional one.
+
+➡️ [Get the template](https://raw.githubusercontent.com/mangal-interactions/contribute/main/templates/references.csv)
+
+The required fields are `firstauthor` and `year` (which we will use as
+`firstauthor_year` to identify the reference); `doi` and `paper` (the URL of a
+publication) are optional; `data` (the URL to the original data) is mandatory.
+We will create a few additional fields from these, notably the full BibTeX
+citation. For the `doi`, `paper`, and `data`, links to preprints, *etc.*, are
+entirely acceptable. The last field is `type`, which can be `dataset` (the main
+reference, limited to one!), or `interaction`, which is associated to an
+interaction. Additionally, you can give a `pmid` or `jstor` identifier, for
+articles without a DOI.
 
 ## Interactions
 
-The `interaction` object is what links nodes from a network together. As such, this is likely going to be the largest file you submit. If you submit mu
+The `interaction` object is what links nodes from a network together. As such,
+this is likely going to be the largest file you submit. If you submit multiple
+networks at once, they should still be in the *same* `interactions.csv` file.
+
+➡️ [Get the template](https://raw.githubusercontent.com/mangal-interactions/contribute/main/templates/interactions.csv)
 
 <!-- links -->
 
