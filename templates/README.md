@@ -1,7 +1,7 @@
 # Mangal submission templates
 
 This folder stores a series of `.csv` files, which, when filled, represent an
-almost complete data submission to <mangal.io> (the remaining steps are to add
+almost complete data submission to mangal.io (the remaining steps are to add
 metadata when opening the *Data Submission* [issue]).
 
 ## A brief overview of the format
@@ -184,12 +184,7 @@ It maps to the following entry in our taxonomy:
 {
     "name":"Copepods",
     "ncbi":6830,
-    "tsn":85257,
-    "eol":null,
-    "bold":null,
-    "gbif":null,
-    "col":null,
-    "rank":null
+    "tsn":85257
 }
 ~~~
 
