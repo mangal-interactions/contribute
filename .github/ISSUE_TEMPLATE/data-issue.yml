@@ -9,17 +9,17 @@ body:
     attributes:
       value: |
         Thank you for signalling a possible data issue. In this form, we will ask a few questions to identify which dataset is the problem, what the specific issue is, and how you think it should be fixed.
- - type: dropdown
-   id: issue-type
-   attributes:
-    label: Type of error
-    description: Please pick a category for the type of error you have identified
-    options:
-      - missing data
-      - unplausible interaction
-      - faulty metadata
-      - issues with taxonomy 
-      - other
+  - type: dropdown
+    id: issue-type
+    attributes:
+      label: Type of error
+      description: Please pick a category for the type of error you have identified
+      options:
+        - missing data
+        - unplausible interaction
+        - faulty metadata
+        - issues with taxonomy 
+        - other
     validations:
       required: true
   - type: input
@@ -39,6 +39,6 @@ body:
   - type: textarea
     attributes:
       label: How to fix the problem
-      description: *If* you have a specific idea or recommendation about fixing the problem, please write it down here
-      
+      description: If you have a specific idea or recommendation about fixing the problem, please write it down here
+
    
