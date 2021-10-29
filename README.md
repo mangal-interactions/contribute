@@ -11,7 +11,11 @@ injection in the database *for you*. Why? There are a few reasons:
 ## How can I contribute?
 
 There are three steps to submitting a dataset (and one of them is only taking a
-few seconds!)
+few seconds!). Here is a checklist, and some description of each step below:
+
+- [ ] register at <https://mangal.io/auth> using your [ORCID] ID
+- [ ] fill-in the [templates], open a *Submission Help* [issue] if stuck
+- [ ] open an [issue] using the *Data Submission* model
 
 ### Signing up as a mangal user
 
