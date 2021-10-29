@@ -15,7 +15,7 @@ reminders about how to format the data.
 
 ⚠️ When filling-in the templates, **please do not remove** rows 2 and 3; they
 are used in the automatic validation we perform before moving on to manual
-inspection.
+inspection. Your data should always start on row 4. The column delimitor is `;`.
 
 Throughout this section, fields in `monospace` refer to how the database and API
 actually calls these things, and you can look at the endpoint examples to see
