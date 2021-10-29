@@ -7,8 +7,8 @@ to do it, we know how to troubleshoot it, you won't feel as bad if you make a
 mistake, and you have other things to do. Our goal is to make the submission
 process a "sit back, relax, and enjoy" experience (for the data depositors).
 
-➡️ [Go here for the submission process][templates] (or keep reading for a brief
-overview)
+➡️ [Go here for instructions about preparing the data][templates] (or keep
+reading for a brief overview of the process)
 
 ## How can I contribute?
 
