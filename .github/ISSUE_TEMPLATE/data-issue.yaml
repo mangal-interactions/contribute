@@ -1,0 +1,44 @@
+name: Data Issue
+description: Issue with data stored on mangal.io
+title: "[ISSUE]: "
+labels: ["data-problem", "triage"]
+assignees:
+  - tpoisot
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for signalling a possible data issue. In this form, we will ask a few questions to identify which dataset is the problem, what the specific issue is, and how you think it should be fixed.
+ - type: dropdown
+   id: issue-type
+   attributes:
+    label: Type of error
+    description: Please pick a category for the type of error you have identified
+    options:
+      - missing data
+      - unplausible interaction
+      - faulty metadata
+      - issues with taxonomy 
+      - other
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Dataset name (or id)
+      description: Please put in the name of the dataset (or its id)
+  - type: input
+    attributes:
+      label: Network name (or id)
+      description: If the issue is about a specific network, please indicate its name (or id)
+  - type: textarea
+    attributes:
+      label: Description of the problem
+      description: Give a description of the problem, and be as precise as you can; you can attach images and other documents to this textbox if that helps
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: How to fix the problem
+      description: *If* you have a specific idea or recommendation about fixing the problem, please write it down here
+      
+   
