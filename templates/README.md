@@ -30,7 +30,6 @@ Here is a checklist of **optional** files:
 
 - [ ] `environment.csv`
 - [ ] `traits.csv`
-- [ ] `references.csv`
 
 ⚠️ When filling-in the templates, **please do not remove** rows 2 and 3; they
 are used in the automatic validation we perform before moving on to manual
@@ -62,17 +61,14 @@ follows:
 ~~~json
 {
     "name":"howking_1968",
-    "description":"Insect activity recorded on flower at Lake Hazen, Ellesmere Island, N.W.T., Canada",
-    "ref_id":2
+    "description":"Insect activity recorded on flower at Lake Hazen, Ellesmere Island, N.W.T., Canada"
 }
 ~~~
 
-With the exception of `ref_id` (which is a `reference`, see the [reference]
-endpoint for an example), the two fields are mandatory; `name` must be unique
-across the entire database, and `description` can be arbitrarily long.
-
-The `dataset` level does not have a `csv` template, as we will ask for the
-information during the *Data Submission* issue.
+The two fields are mandatory; `name` must be unique across the entire database,
+and `description` can be arbitrarily long. The `dataset` level does not have a
+`csv` template, as we will ask for the information during the *Data Submission*
+issue.
 
 ⚠️ **It is very important** that a *Data Submission* cover a *single* dataset!
 If your dataset contains multiple networks, you only need to submit one file for
@@ -162,11 +158,7 @@ interaction with a point within it.
 contains *known* non-interactions. This is going to be `false` about 99% of the
 time, but may be `true` when dealing with infection assays, cafeteria
 experiments, etc. There is a special interaction-level flag to indicate which
-are know to not occur.
-
-❔ Why is there no `reference` field for networks? Very good question - we ended
-up moving the reference field to the `interaction` type, as networks coming from
-litterature reviews can use one reference for each interaction.
+are known to not occur.
 
 ## Environmental conditions (optional)
 
@@ -271,23 +263,6 @@ The mandatory traits are `network` (the *name* of a network in the
 `nodes.csv` file); other fields are self-explanatory, and the unit will default
 to `None` for dimensionless variables.
 
-## References (optional, recommended)
-
-Both `dataset`s and `interaction`s can have associated references. This is a
-very useful field to populate, but an entirely optional one.
-
-➡️ [Get the template](https://raw.githubusercontent.com/mangal-interactions/contribute/main/templates/references.csv)
-
-The required fields are `firstauthor` and `year` (which we will use as
-`firstauthor_year` to identify the reference); `doi` and `paper` (the URL of a
-publication) are optional; `data` (the URL to the original data) is mandatory.
-We will create a few additional fields from these, notably the full BibTeX
-citation. For the `doi`, `paper`, and `data`, links to preprints, *etc.*, are
-entirely acceptable. The last field is `type`, which can be `dataset` (the main
-reference, limited to one!), or `interaction`, which is associated to an
-interaction. Additionally, you can give a `pmid` or `jstor` identifier, for
-articles without a DOI.
-
 ## Interactions
 
 The `interaction` object is what links nodes from a network together. As such,
@@ -295,6 +270,43 @@ this is likely going to be the largest file you submit. If you submit multiple
 networks at once, they should still be in the *same* `interactions.csv` file.
 
 ➡️ [Get the template](https://raw.githubusercontent.com/mangal-interactions/contribute/main/templates/interactions.csv)
+
+Let's look at an example:
+
+~~~json
+{
+    "network_id": 1474,
+    "node_from": 24589,
+    "node_to": 24554,
+    "date": "1983-01-01T00:00:00.000Z",
+    "direction": "directed",
+    "type": "herbivory",
+    "method": "gut content",
+    "value": 8,
+}
+~~~
+
+Interactions are a mapping between two `node`s from a `network`, and the rest is
+biological metadata. Interactions can have their own `date` and `geom` (which follow the same logic as the one for `network`s). 
+
+The `direction` field can be `undirected`, `directed`, or `unknown`; it is
+mandatory.
+
+The `type` is a controlled vocabulary, which can be one of `competition`,
+`amensalism`, `neutralism`, `commensalism`, `mutualism`, `parasitism`,
+`predation`, `herbivory`, `symbiosis`, `scavenger`, `detritivore`,
+`unspecified`, `consumption`. The default is `unspecified`. This vocabular can
+be expanded upon request.
+
+The `method` field is free-form text to indicate how the observation was
+established; this will most often be `observation`, but can also be *e.g.*
+`experiment`, `inference`, `literature`, etc.
+
+The `value` field is the *strength* of the interaction, and it is represented
+exactly like traits and environmental variables in the template (under the hood,
+this involves writing things in a few different tables, but for the purpose of
+submitting data, it is not).
+
 
 <!-- links -->
 
