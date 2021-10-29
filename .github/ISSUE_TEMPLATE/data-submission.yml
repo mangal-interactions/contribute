@@ -1,4 +1,4 @@
-name: Data Submisison
+name: Data Submission
 description: Submission of filled-in template files for upload
 title: "[DATASET]: "
 labels: ["data-submission", "triage"]
@@ -102,11 +102,11 @@ body:
       required: false
   - type: textarea
     attributes:
-      label: Traits data
+      label: Trait data
       description: Use this field to (optionally) drag and drop the `traits.csv` file, and then add any information or questions you think are relevant
     validations:
       required: false
   - type: markdown
     attributes:
       value: |
-        Thank you! If all the mandatory fields have been populated, you can click on 'Submit new issue' below, and we will start validating and preparing the data for upload.
+        Thank you! If all the mandatory fields have been populated, you can click on 'Submit new issue' below, and we will start validating and preparing the data for upload
