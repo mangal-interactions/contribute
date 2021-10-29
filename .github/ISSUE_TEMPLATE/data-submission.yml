@@ -8,13 +8,14 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thank you for contributing to the growth of mangal.io; this form will collect all of the relevant information to initiate the submission process.
+        Thank you for contributing to the growth of mangal.io; this form will collect all of the relevant information to initiate the submission process. It should take under 5 minutes to fill-in.   
+        We will assume that you went to [https://mangal.io/auth](https://mangal.io/auth) to link your ORCID to the mangal user list, and went through the [submission preparation steps](https://github.com/mangal-interactions/contribute/tree/main/templates).
   - type: input
     id: orcid
     attributes:
       label: Submitter's ORCID
       placeholder: 0000-0000-0000-0000
-      description: If your ORCID is not yet linked to the mangal database, please visit mangal.io/auth
+      description: If your ORCID is not yet linked to the mangal database
     validations:
       required: true
   - type: checkboxes
@@ -47,10 +48,66 @@ body:
   - type: textarea
     attributes:
       label: Anything we need to know about this dataset?
-      description: You can use this field to provide any additional information, or high-level questions you have about the dataset and its upload
+      description: You can use this field to provide any additional information, or high-level questions you have about the dataset and its upload; you can attach files that are *not* the submission templates here
+  - type: input
+    attributes:
+      label: Original data URL
+      description: Provide the URL for the original data
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Original article URL
+      description: Provide the URL for the original article
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: DOI
+      description: Provide a DOI for the article or dataset
+  - type: input
+    attributes:
+      label: DOI
+      description: Provide a DOI for the article or dataset
+  - type: input
+    attributes:
+      label: PMID
+      description: Provide a PMID for the article
+  - type: input
+    attributes:
+      label: JSTOR
+      description: Provide a JSTOR ID for the article
   - type: textarea
     attributes:
-      label: How to fix the problem
-      description: If you have a specific idea or recommendation about fixing the problem, please write it down here
-
-   
+      label: Network data
+      description: Use this field to drag and drop the `networks.csv` file, and then add any information or questions you think are relevant
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Nodes data
+      description: Use this field to drag and drop the `nodes.csv` file, and then add any information or questions you think are relevant
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Interactions data
+      description: Use this field to drag and drop the `interactions.csv` file, and then add any information or questions you think are relevant
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Environmental data
+      description: Use this field to (optionally) drag and drop the `environment.csv` file, and then add any information or questions you think are relevant
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Traits data
+      description: Use this field to (optionally) drag and drop the `traits.csv` file, and then add any information or questions you think are relevant
+    validations:
+      required: false
+  - type: markdown
+    attributes:
+      value: |
+        Thank you! If all the mandatory fields have been populated, you can click on "Submit new issue" below, and we will start validating and preparing the data for upload.
