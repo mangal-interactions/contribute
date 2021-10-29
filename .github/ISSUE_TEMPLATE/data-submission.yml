@@ -109,4 +109,4 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thank you! If all the mandatory fields have been populated, you can click on "Submit new issue" below, and we will start validating and preparing the data for upload.
+        Thank you! If all the mandatory fields have been populated, you can click on 'Submit new issue' below, and we will start validating and preparing the data for upload.
