@@ -7,6 +7,9 @@ to do it, we know how to troubleshoot it, you won't feel as bad if you make a
 mistake, and you have other things to do. Our goal is to make the submission
 process a "sit back, relax, and enjoy" experience (for the data depositors).
 
+➡️ [Go here for the submission process][templates] (or keep reading for a brief
+overview)
+
 ## How can I contribute?
 
 There are three steps to submitting a dataset (and one of them is only taking a
