@@ -8,8 +8,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thank you for contributing to the growth of mangal.io; this form will collect all of the relevant information to initiate the submission process. It should take under 5 minutes to fill-in.   
-        We will assume that you went to [https://mangal.io/auth](https://mangal.io/auth) to link your ORCID to the mangal user list, and went through the [submission preparation steps](https://github.com/mangal-interactions/contribute/tree/main/templates).
+        Thank you for contributing to the growth of mangal.io; this form will collect all of the relevant information to initiate the submission process. It should take under 5 minutes to fill-in. We will assume that you went to [https://mangal.io/auth](https://mangal.io/auth) to link your ORCID to the mangal user list, and went through the [submission preparation steps](https://github.com/mangal-interactions/contribute/tree/main/templates).
   - type: input
     id: orcid
     attributes:
