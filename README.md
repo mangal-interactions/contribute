@@ -2,11 +2,10 @@
 
 **Thank you for contributing your data**. The aim of this repository is to make
 the submission process as easy as possible. In fact, we will do the actual
-injection in the database *for you*. Why? There are a few reasons:
-
-- we know how to do it!
-- we know how to troubleshoot it!
-- you have other things to do!
+injection in the database *for you*. Why? There are a few reasons: we know how
+to do it, we know how to troubleshoot it, you won't feel as bad if you make a
+mistake, and you have other things to do. Our goal is to make the submission
+process a "sit back, relax, and enjoy" experience (for the data depositors).
 
 ## How can I contribute?
 
@@ -22,7 +21,10 @@ few seconds!). Here is a checklist, and some description of each step below:
 This is not something you actually have to do. If you have an [ORCID] ID, all
 you need to do is click on <https://mangal.io/auth>, login with ORCID, and you
 will have an account. We will ask for your ORCID during the submission process
-if you want it to be linked to the data.
+if you want it to be linked to the data. At this link (which you can revisit at
+any point), you will see a field called `access_token` - *do not share it*. Some
+of the issues templates will ask for your ID, and by this we mean your ORCID ID.
+You should never have to share (or, indeed, use) your access token.
 
 That's it. Welcome to the user list.
 
