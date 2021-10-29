@@ -1,0 +1,17 @@
+name: Submission Help
+description: Issues related to template preparation
+title: "[HELP]: "
+labels: ["submission-question", "triage"]
+assignees:
+  - tpoisot
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The goal of this issue is to walk you through the use of the templates, so that you can move on to the data submission itself!
+  - type: textarea
+    attributes:
+      label: Description of the problem
+      description: Give a description of the problem, and be as precise as you can; you can attach images and other documents to this textbox if that helps
+    validations:
+      required: true 

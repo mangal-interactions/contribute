@@ -31,14 +31,17 @@ involves a number of back and forth emails to clarify points of data structure.
 
 To make sure that the data are published as rapidly and efficiently as possible,
 it is a good idea to attach the templates to your data submission issue (see the
-next section!). The links to the templates can be found
-[here][templates].
+next section!). The links to the templates, alongside their documentation, can
+be found [here][templates]. If you are stuck with the preparation of the data,
+you can open an issue and pick the *Submission Help* model.
 
 ### Opening an issue describing the dataset
 
-The last step is to [open an issue][issue]
+The last step is to [open an issue][issue] and pick the *Data Submission* model.
+There will be a few information to provide (most of them are metadata), and
+someone will be in touch shortly to check the data and start the injection
+process.
 
-## The templates
 ## Additional questions
 
 **What is the license of the data on mangal.io**? CC-0 by default, or the
@@ -61,4 +64,4 @@ repository, and we will examine and fix the issue.
 
 [ORCID]: https://orcid.org/
 [issue]: https://github.com/mangal-interactions/contribute/issues/new/choose
-[templates]: https://github.com/mangal-interactions/contribute#the-templates
+[templates]: https://github.com/mangal-interactions/contribute/tree/main/templates
