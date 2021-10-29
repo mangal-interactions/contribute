@@ -60,4 +60,20 @@ body:
       description: Provide the URL for the original article
     validations:
       required: true
+  - type: input
+    attributes:
+      label: DOI
+      description: Provide a DOI for the article or dataset
+  - type: input
+    attributes:
+      label: DOI
+      description: Provide a DOI for the article or dataset
+  - type: input
+    attributes:
+      label: PMID
+      description: Provide a PMID for the article
+  - type: input
+    attributes:
+      label: JSTOR
+      description: Provide a JSTOR ID for the article
   
