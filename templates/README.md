@@ -307,6 +307,12 @@ exactly like traits and environmental variables in the template (under the hood,
 this involves writing things in a few different tables, but for the purpose of
 submitting data, it is not).
 
+## Submission
+
+When all the appropriate files are ready, you can initiate a *Data Submission*
+[issue] to upload them, add some metadat for the dataset, and mention any
+relevant information / ask any question you have. We will then clarify the
+details of the dataset, and take care of the upload for you.
 
 <!-- links -->
 
