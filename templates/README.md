@@ -162,6 +162,8 @@ A `network` is a collection of `node`s (see the [node] endpoint) and
 two objects wearing a trenchcoat: the node itself as *you* called it in the raw
 data, and an object in the `taxonomy` backbone (see the [taxonomy] endpoint).
 
+➡️ [Get the template](https://raw.githubusercontent.com/mangal-interactions/contribute/main/templates/nodes.csv)
+
 😕 **Wait, what**? Taxonomic identifications in the field are not necessarily as
 precise as we would like, and we want to strike the right balance between (i)
 keeping the data as raw as possible, for reproducibility, and (ii) linking them
@@ -212,6 +214,29 @@ probably a `taxon` level interaction.
 
 💬 As for other choices where there is no *correct* solution, we will discuss
 the consequences of this choice as part of  the *Data Submission* issue.
+
+The `name` field is the valid taxonomic name assigned to the node. The other
+fields for the taxonomy are identifiers in various databases:
+
+| field  | data source               |
+| ------ | ------------------------- |
+| `ncbi` | ncbi.nlm.nih.gov/taxonomy |
+| `tsn`  | itis.gov                  |
+| `eol`  | eol.org                   |
+| `bold` | ibol.org                  |
+| `gbif` | gbif.org                  |
+| `col`  | catalogueoflife.org       |
+
+They are *all* optional and we will try to populate at least the GBIF and NCBI
+ones; in cases of name ambiguity, we will populate at least one of these to
+ensure there is no key conflict.
+
+Finally, the `rank` field (optional) is an indication of the taxonomic rank of
+the node; this is being progressively phased out in support of querying
+information using taxonomic identifiers, but the accepted values are `kingdom`,
+`subkingdom`, `infrakingdom`, `superdivision`, `division`, `subdivision`,
+`phylum`, `class`, `superorder`, `order`, `superfamily`, `family`, `genus`,
+`subgenus`, `species`, and `infraspecies`.
 
 <!-- links -->
 
