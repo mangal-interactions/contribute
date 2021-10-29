@@ -59,11 +59,14 @@ etc.
 
 **How do I know the data will not be uploaded wrong**? The data submission
 script is using a number of sanity checks to make sure the data are injected
-exactly as provided. Nothing is done without human supervision.
+exactly as provided. Part of this involves using the type system to validate the
+data before they are sent to the database. Nothing is done without human
+supervision, and every injection is manually examined after the fact to see if
+there are issues to address.
 
 **Why not use a pull request to publish data**? Having spent a lot of time
-around code, we trust it less than we trust human. Manual inspection of data
-will most likely always be how we proceed.
+around code, we don't trust code. Manual inspection of data will most likely
+always be how we proceed.
 
 **I found an error in the data**! That's not a question but fine; there is a
 specific type of issue (called *Data Issue*) [you can open][issue] on this
