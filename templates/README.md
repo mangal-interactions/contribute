@@ -7,13 +7,26 @@ metadata when opening the *Data Submission* [issue]).
 ## A brief overview of the format
 
 The data in mangal are represented by a hierarchy of types, and some choices
-deserve a clarification. Throughout this section, fields in `monospace` refer to
-how the database and API actually calls these things, and you can look at the
-endpoint examples to see how the data are actually shaped (and endpoint is the
-URL used to access the data, and you don't really need to know this in order to
-prepare your files). In practice, the data representation has a lot more fields
-than that, but they are populated automatically to ensure that the data are
-correctly linked.
+deserve a clarification. This section will provide a detailed explanation of
+what makes a mangal object, and then give a link to the template. All the
+templates are organised in the same way: the first row is the field name, the
+second row tells whether it is required or optional, and the last row is
+reminders about how to format the data.
+
+⚠️ When filling-in the templates, **please do not remove** rows 2 and 3; they
+are used in the automatic validation we perform before moving on to manual
+inspection.
+
+Throughout this section, fields in `monospace` refer to how the database and API
+actually calls these things, and you can look at the endpoint examples to see
+how the data are actually shaped (and endpoint is the URL used to access the
+data, and you don't really need to know this in order to prepare your files). In
+practice, the data representation has a lot more fields than that, but they are
+populated automatically to ensure that the data are correctly linked.
+
+⚠️ When downloading the templates, **please do not rename them**. This is going
+to help with the injection steps, as we perform some automatic checks for data
+integrity before manual inspection.
 
 ### Datasets
 
@@ -43,7 +56,9 @@ information during the *Data Submission* issue.
 ### Networks
 
 Within a `dataset` is a series of `network`s (see the [network] endpoint for
-examples)
+examples).
+
+➡️ [Get the template](templates/networks.csv)
 
 ~~~json
 {
@@ -96,7 +111,8 @@ landing][angola] is defined as polygon represented by
 ~~~
 
 In all cases, the pairs of points are given as `[longitude, latitude]`. In the
-template, a polygon is represented as a *closed* object:
+template, a polygon is represented as a *closed* object, so the first and last
+point should be equal:
 
 ~~~csv
 geometry;coordinates
