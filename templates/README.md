@@ -58,7 +58,7 @@ information during the *Data Submission* issue.
 Within a `dataset` is a series of `network`s (see the [network] endpoint for
 examples).
 
-➡️ [Get the template](templates/networks.csv)
+➡️ [Get the template](../templates/networks.csv)
 
 ~~~json
 {
