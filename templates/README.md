@@ -4,6 +4,10 @@ This folder stores a series of `.csv` files, which, when filled, represent an
 almost complete data submission to mangal.io (the remaining steps are to add
 metadata when opening the *Data Submission* [issue]).
 
+⚠️ **We use `;` as a delimiter for the CSV files**. This is because the `,`
+character is expected to occur more commonly both in descriptions and in
+geographic coordinates.
+
 The data in mangal are represented by a hierarchy of types, and some choices
 deserve a clarification. This section will provide a detailed explanation of
 what makes a mangal object, and then give a link to the template. All the
@@ -47,8 +51,8 @@ to help with the injection steps, as we perform some automatic checks for data
 integrity before manual inspection.
 
 🤓 If you want to take a really deep dive at the data representation, the API
-documentation is [available online][API]. We strongly suggest you do not read
-it.
+documentation is [available online][API], and will let you look at the raw JSON
+objects representing each data type. We strongly suggest you do not read it.
 
 ## Datasets
 
@@ -56,14 +60,13 @@ The highest-level unit is a `datataset` (see the [dataset] endpoint for
 examples). A dataset contains high-level metadata, and is intended as a
 collection of networks. Some datasets store a single network, some store
 hundreds. Think of a dataset as one paper. The fields in a dataset are as
-follows:
+follows (the data are presented as a table here, but in practice they are stored
+a JSON objects):
 
-~~~json
-{
-    "name":"howking_1968",
-    "description":"Insect activity recorded on flower at Lake Hazen, Ellesmere Island, N.W.T., Canada"
-}
-~~~
+| Field       | value                                                                              |
+| ----------- | ---------------------------------------------------------------------------------- |
+| name        | howking_1968                                                                       |
+| description | Insect activity recorded on flower at Lake Hazen, Ellesmere Island, N.W.T., Canada |
 
 The two fields are mandatory; `name` must be unique across the entire database,
 and `description` can be arbitrarily long. The `dataset` level does not have a
@@ -81,18 +84,13 @@ examples).
 
 ➡️ [Get the template](https://raw.githubusercontent.com/mangal-interactions/contribute/main/templates/networks.csv)
 
-~~~json
-{
-    "name":"roberson_1929_18990701_19",
-    "date":"1899-07-01T00:00:00.000Z",
-    "geom":{
-        "type":"Point",
-        "coordinates":[-89.8818,39.2798]
-    },
-    "description":"Insects observed pollinating flowers, ten miles of Carlinville, Illinois, USA",
-    "all_interactions":false
-}
-~~~
+| Field            | Value                                                                         |
+| ---------------- | ----------------------------------------------------------------------------- |
+| name             | roberson_1929_18990701_19                                                     |
+| date             | 1899-07-01T00:00:00.000Z                                                      |
+| geom             | `"type":"Point", "coordinates":[-89.8818,39.2798]`                            |
+| description      | Insects observed pollinating flowers, ten miles of Carlinville, Illinois, USA |
+| all_interactions | false                                                                         |
 
 The `name` must also be unique, and is usually the dataset name followed by
 additional information (in the case, the date as `YYYYMMDD` and the network
@@ -111,24 +109,22 @@ submitted data.
 
 🌍 The `geom` field is a [GeoJSON][geojson] `geometry`, which will often be a
 point, but can also a polygon. For example, the food web of [Angolan fisheries
-landing][angola] is defined as polygon represented by
+landing][angola] is defined as polygon, and its `"geom"` is represented by
 
 ~~~json
-"geom":{
-    "type":"Polygon",
-    "coordinates":[
-        [
-            [10.9533691,-17.25],
-            [11.6235352,-17.25],
-            [11.6455078,-15.5383759],
-            [12.1289063,-13.9660541],
-            [13.6010742,-11.1352871],
-            [11.953125,-5],
-            [10.7006836,-5],
-            [10.9533691,-17.25],
-            [10.9533691,-17.25]]
-    ]
-}
+"type":"Polygon",
+"coordinates":[
+    [
+        [10.9533691,-17.25],
+        [11.6235352,-17.25],
+        [11.6455078,-15.5383759],
+        [12.1289063,-13.9660541],
+        [13.6010742,-11.1352871],
+        [11.953125,-5],
+        [10.7006836,-5],
+        [10.9533691,-17.25],
+        [10.9533691,-17.25]]
+]
 ~~~
 
 In all cases, the pairs of points are given as `[longitude, latitude]`. In the
@@ -186,24 +182,20 @@ precise as we would like, and we want to strike the right balance between (i)
 keeping the data as raw as possible, for reproducibility, and (ii) linking them
 to a valid taxonomic node, for generality. For example, let's look at this node:
 
-~~~json
-{
-    "original_name":"Z1ai: copepods (large, >= 0.025mg C)",
-    "node_level":"taxon",
-    "network_id":2470,
-    "taxonomy_id":4441
-}
-~~~
+| Field         | value                                |
+| ------------- | ------------------------------------ |
+| original_name | Z1ai: copepods (large, >= 0.025mg C) |
+| node_level    | taxon                                |
+| network_id    | 2470                                 |
+| taxonomy_id   | 4441                                 |
 
 It maps to the following entry in our taxonomy:
 
-~~~json
-{
-    "name":"Copepods",
-    "ncbi":6830,
-    "tsn":85257
-}
-~~~
+| Field | value    |
+| ----- | -------- |
+| name  | Copepods |
+| ncbi  | 830      |
+| tsn   | 5257     |
 
 This way, we can map the `node` to the actual network node in the raw data, but
 we can also look for *e.g.* "all interactions involving copepods".
@@ -273,18 +265,17 @@ networks at once, they should still be in the *same* `interactions.csv` file.
 
 Let's look at an example:
 
-~~~json
-{
-    "network_id": 1474,
-    "node_from": 24589,
-    "node_to": 24554,
-    "date": "1983-01-01T00:00:00.000Z",
-    "direction": "directed",
-    "type": "herbivory",
-    "method": "gut content",
-    "value": 8,
-}
-~~~
+| Field      | value                    |
+| ---------- | ------------------------ |
+| network_id | 1474                     |
+| node_from  | 24589                    |
+| node_to    | 24554                    |
+| date       | 1983-01-01T00:00:00.000Z |
+| direction  | directed                 |
+| type       | herbivory                |
+| method     | gut content              |
+| value      | 8                        |
+
 
 Interactions are a mapping between two `node`s from a `network`, and the rest is
 biological metadata. Interactions can have their own `date` and `geom` (which follow the same logic as the one for `network`s). 
