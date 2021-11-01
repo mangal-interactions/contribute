@@ -237,9 +237,12 @@ fields for the taxonomy are identifiers in various databases:
 | `gbif` | gbif.org                  |
 | `col`  | catalogueoflife.org       |
 
-They are *all* optional and we will try to populate at least the GBIF and NCBI
-ones; in cases of name ambiguity, we will populate at least one of these to
-ensure there is no key conflict.
+They are *all* optional; in cases of name ambiguity, we will populate at least
+one of these to ensure there is no key conflict.
+
+🥺 **There's two fields we really like**: NCBI and GBIF. These are important
+because (i) the NCBI taxonomy is very robust and well maintained, and (ii) the
+GBIF taxonomy is useful to move from network data to species distribution.
 
 Finally, the `rank` field (optional) is an indication of the taxonomic rank of
 the node; this is being progressively phased out in support of querying
