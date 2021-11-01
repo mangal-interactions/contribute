@@ -200,6 +200,12 @@ It maps to the following entry in our taxonomy:
 This way, we can map the `node` to the actual network node in the raw data, but
 we can also look for *e.g.* "all interactions involving copepods".
 
+😕 **But what if my node isn't really a taxon**? That happens. One solution is to put its
+name as `Root` and give it the NCBI ID `1`, which means: "definitely either alive or a
+virus".  Alternatively, you can leave the taxon information blank, and then we will know
+that this node is currently unresolved. This is sometimes the best solution for nodes like
+*e.g.* "detritus" or "marine invertebrates", who don't really have a taxonomic unit.
+
 To facilitate the injection of nodes, we put information for original and
 reference names in the same template.
 
