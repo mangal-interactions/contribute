@@ -1,0 +1,21 @@
+name: Dataset Suggestion
+description: Suggestion of a dataset to import
+title: "[SUGGEST]: "
+labels: ["triage"]
+assignees:
+  - tpoisot
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The goal of this issue is to suggest a data to import in mangal.io
+  - type: input
+    attributes:
+      label: Dataset URL
+      description: Where is the dataset currently located?
+  - type: textarea
+    attributes:
+      label: Description of the dataset
+      description: Give a description of the dataset, with as many details as possible
+    validations:
+      required: true 
